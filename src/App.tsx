@@ -63,7 +63,7 @@ export const App = () => {
 
     setTodos([...todos, newTodo]);
     setTitle('');
-    setSelectedUserId('');
+    setSelectedUserId('0');
     setTitleError(false);
     setUserError(false);
   };
