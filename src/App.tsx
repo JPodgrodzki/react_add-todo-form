@@ -14,19 +14,19 @@ export const App = () => {
   const [todos, setTodos] = useState(preparedTodos);
   const [users] = useState(usersFromServer);
   const [title, setTitle] = useState('');
-  const [selectedUserId, setSelectedUserId] = useState('');
+  const [selectedUserId, setSelectedUserId] = useState('0');
   const [titleError, setTitleError] = useState(false);
   const [userError, setUserError] = useState(false);
-
-  const handleTitleChan: React.ChangeEventHandler<HTMLInputElement> = event => {
+  // eslint-disable-next-line
+  const handleTitleChange: React.ChangeEventHandler<HTMLInputElement> = event => {
     setTitle(event.target.value);
 
     if (titleError) {
       setTitleError(false);
     }
   };
-
-  const handleUserChan: React.ChangeEventHandler<HTMLSelectElement> = event => {
+  // eslint-disable-next-line
+  const handleUserChange: React.ChangeEventHandler<HTMLSelectElement> = event => {
     setSelectedUserId(event.target.value);
 
     if (userError) {
@@ -79,7 +79,7 @@ export const App = () => {
             data-cy="titleInput"
             placeholder="Enter a title"
             value={title}
-            onChange={handleTitleChan}
+            onChange={handleTitleChange}
           />
           {titleError && <span className="error">Please enter a title</span>}
         </div>
@@ -88,7 +88,7 @@ export const App = () => {
           <select
             data-cy="userSelect"
             value={selectedUserId}
-            onChange={handleUserChan}
+            onChange={handleUserChange}
           >
             <option value="0">Choose a user</option>
             {users.map(user => (
